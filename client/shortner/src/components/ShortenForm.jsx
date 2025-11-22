@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { shortenUrl } from "../routeApiHandler"; // Fixed path
+import { shortenUrl } from "../routeApiHandler";
 import { Copy, Link2, Loader2, CheckCircle2, LogIn } from "lucide-react";
 
 const ShortenForm = ({ onShorten }) => {
@@ -34,8 +34,8 @@ const ShortenForm = ({ onShorten }) => {
 
       const data = await shortenUrl(cleanUrl);
       setShortUrl(data.shortUrl);
-      setOriginalUrl(""); // Clear input
-      onShorten?.(); // Trigger refresh in LinkList
+      setOriginalUrl("");
+      onShorten?.();
     } catch (err) {
       setError(err.message || "Failed to shorten URL. Try again.");
     } finally {
@@ -57,12 +57,10 @@ const ShortenForm = ({ onShorten }) => {
     <div className="w-full max-w-3xl mx-auto">
       <div className="bg-white/10 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/20 p-8 md:p-12">
         
-        {/* Title */}
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
           Shorten Your Link
         </h2>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
@@ -97,14 +95,12 @@ const ShortenForm = ({ onShorten }) => {
           </button>
         </form>
 
-        {/* Error */}
         {error && (
           <div className="mt-6 p-5 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-200 text-center font-medium flex items-center justify-center gap-3">
             <span>Error:</span> {error}
           </div>
         )}
 
-        {/* Success Result */}
         {shortUrl && !error && (
           <div className="mt-10 p-6 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/50 rounded-2xl animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex items-center justify-between gap-4">

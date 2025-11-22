@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getStats } from "../routeApiHandler"; // Make sure path is correct
+import { getStats } from "../routeApiHandler";
 import {
   Search,
   Link2,
@@ -54,13 +54,11 @@ const Stats = () => {
     <div className="w-full max-w-2xl mx-auto px-4">
       <div className="bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-8 md:p-10">
 
-        {/* Header */}
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent flex items-center justify-center gap-3">
           <Search className="w-10 h-10" />
           Link Analytics
         </h2>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="relative">
             <input
@@ -88,7 +86,6 @@ const Stats = () => {
           </button>
         </form>
 
-        {/* Error */}
         {error && (
           <div className="mt-6 p-5 bg-red-500/20 border border-red-500/50 rounded-2xl flex items-center gap-3 text-red-200">
             <AlertCircle size={22} />
@@ -96,10 +93,8 @@ const Stats = () => {
           </div>
         )}
 
-        {/* Success Result */}
         {stats && !error && (
           <div className="mt-8 p-7 bg-white/10 border border-white/20 rounded-2xl space-y-6 animate-in fade-in slide-in-from-bottom duration-500">
-            {/* Short URL + Copy */}
             <div className="flex items-center justify-between gap-4 bg-black/30 px-5 py-4 rounded-xl">
               <code className="text-cyan-300 font-mono text-lg break-all">
                 {BASE_URL}/{stats.shortCode}
@@ -116,7 +111,6 @@ const Stats = () => {
               </button>
             </div>
 
-            {/* Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div className="bg-white/5 rounded-xl p-5">
                 <MousePointerClick className="w-10 h-10 mx-auto mb-3 text-emerald-400" />

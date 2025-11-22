@@ -12,7 +12,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
-      {/* Header */}
       <header className="border-b border-purple-800/30 bg-black/20 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-4 py-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-teal-400 to-purple-600 bg-clip-text text-transparent">
@@ -24,9 +23,7 @@ function App() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 py-12 space-y-16">
-        {/* Shorten Form */}
         <section className="relative -mt-8">
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-purple-500/20 p-8 md:p-10">
             <ShortenForm onShorten={handleShorten} />
@@ -46,13 +43,6 @@ function App() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="mt-24 pb-10 text-center text-gray-400 text-sm">
-        <p>
-          Made with <span className="text-red-500">♥</span> using React + Tailwind CSS
-        </p>
-      </footer>
     </div>
   );
 }
