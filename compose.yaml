@@ -12,7 +12,7 @@ services:
     volumes:
       - ./server/logs:/app/logs
       - /app/node_modules
-    restart: always
+    restart: unless-stopped
 
   frontend:
     container_name: shortner_frontend
@@ -26,4 +26,4 @@ services:
       - "3000:80"
     depends_on:
       - backend
-    restart: always
+    restart: unless-stopped
