@@ -1,0 +1,33 @@
+# Node modules
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Vite build output (generated during build stage)
+dist
+
+# Environment files (never include in image)
+.env
+.env.local
+.env.development
+.env.production
+
+# Logs
+*.log
+logs
+
+# System / editor files
+.DS_Store
+.vscode
+.idea
+
+# Unit test / coverage
+coverage
+
+# Docker files (not needed inside image)
+docker-compose.yml
+docker-compose.*.yml
+
+# Git files
+.git
+.gitignore

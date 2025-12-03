@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: urlshortner-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: urlshortner-backend
+  template:
+    metadata:
+      labels:
+        app: urlshortner-backend
+    spec:
+      containers:
+      - name: urlshortner-backend
+        image: urlshortner-backend:k8s-1.6
+        ports:
+          - containerPort: 8080
+        envFrom:
+          - secretRef:
+              name: urlshortner-env

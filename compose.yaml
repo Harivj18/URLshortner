@@ -1,0 +1,29 @@
+services:
+
+  backend:
+    container_name: shortner_backend
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server/logs:/app/logs
+      - /app/node_modules
+    restart: always
+
+  frontend:
+    container_name: shortner_frontend
+    build:
+      context: ./client/shortner
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: http://localhost:8080
+        VITE_APP_BASE_URL: http://localhost:8080/api
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
